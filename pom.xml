@@ -34,9 +34,47 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>    		
 	</dependencies>
 
 	<build>
+	
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.openapitools</groupId>
+										<artifactId>openapi-generator-maven-plugin</artifactId>
+										<versionRange>[1.9,)</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnIncremental>true</runOnIncremental>
+											<runOnConfiguration>true</runOnConfiguration>
+										</execute>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>    	
+	
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
